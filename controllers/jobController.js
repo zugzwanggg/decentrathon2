@@ -5,7 +5,8 @@ export const createJob = async(req,res) => {
     
     const { title, description, reqiurements, contract_type,status } = req.body;
 
-    await db.query('INSERT INTO jobs(title, description, reqiurements, contract_type, status) VALUES ($1,$2,$3,$4,$5)');
+    await db.query('INSERT INTO jobs(title, description, reqiurements, contract_type, status) VALUES ($1,$2,$3,$4,$5)',
+    [title,description,reqiurements, contract_type, status]);
 
     res.status(200).send({
       status: "succesfully"
@@ -20,9 +21,7 @@ export const getJobs = async(req,res) => {
   try {
     const jobs = await db.query("SELECT * FROM jobs");
 
-    res.status(200).json(
-      jobs.rows
-    )
+    res.status(200).json(jobs.rows)
   } catch (error) {
     res.status(200).json(error)
   }

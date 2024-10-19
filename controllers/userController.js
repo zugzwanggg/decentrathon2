@@ -12,7 +12,7 @@ export const createUser = async(req,res) => {
     res.status(500).json(error)
     console.log(error);
   }
-}
+} 
 
 export const getUser = async(req,res) => {
   try {
