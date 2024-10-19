@@ -1,3 +1,6 @@
+
+
+
 export const getData = async(req,res) => {
   try {
     res.json({
