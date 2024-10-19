@@ -1,8 +1,6 @@
-import pg from 'pg';
+import pkg from 'pg';
+const { Pool } = pkg;
 
-const { Pool } = pg;
-
-const pool = new Pool({
+export const db = new Pool({
   connectionString: process.env.POSTGRES_URL,
 })
-//#endregion
