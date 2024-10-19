@@ -2,13 +2,15 @@ import {db} from '../database.js';
 
 export const createUser = async(req,res) => {
   try {
-    const {tg_id, first_name, last_name, user_img, user_description, user_resume, company_id} = req.body;
+    const {tg_id, first_name, last_name, user_img, user_description, user_resume, company_id, role} = req.body;
 
-    await db.query('INSERT INTO users(tg_id, first_name, last_name, user_img, user_description, user_resume, company_id) VALUES ($1,$2,$3,$4,$5,$6,$7)',
-    [tg_id, first_name, last_name, user_img, user_description, user_resume, company_id]
+    await db.query('INSERT INTO users(tg_id, first_name, last_name, user_img, user_description, user_resume, company_id, role) VALUES ($1,$2,$3,$4,$5,$6,$7, $8)',
+    [tg_id, first_name, last_name, user_img, user_description, user_resume, company_id, role]
     )
+
   } catch (error) {
     res.status(500).json(error)
+    console.log(error);
   }
 }
 
