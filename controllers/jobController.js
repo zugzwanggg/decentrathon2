@@ -3,10 +3,10 @@ import {db} from "../database.js";
 export const createJob = async(req,res) => {
   try {
     
-    const { title, description, reqiurements, contract_type,status } = req.body;
+    const { title, description, reqiurements, contract_type,status,company_id } = req.body;
 
-    await db.query('INSERT INTO jobs(title, description, reqiurements, contract_type, status) VALUES ($1,$2,$3,$4,$5)',
-    [title,description,reqiurements, contract_type, status]);
+    await db.query('INSERT INTO jobs(title, description, reqiurements, contract_type, status,company_id) VALUES ($1,$2,$3,$4,$5,$6)',
+    [title,description,reqiurements, contract_type, status, company_id]);
 
     res.status(200).send({
       status: "succesfully"
