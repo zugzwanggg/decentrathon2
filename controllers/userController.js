@@ -4,8 +4,7 @@ export const createUser = async(req,res) => {
   try {
     const {tg_id, first_name, last_name, user_img, user_description, user_resume, company_id} = req.body;
 
-    await db.query('INSERT INTO users(tg_id, first_name, last_name, user_img, user_description, user_resume, company_id) VALUES ($1,$2,$3,$4,$5,$6,$&)'
-    ,[tg_id, first_name, last_name, user_img, user_description, user_resume, company_id]
+    await db.query('INSERT INTO users(tg_id, first_name, last_name, user_img, user_description, user_resume, company_id) VALUES ($1,$2,$3,$4,$5,$6,$7)',[tg_id, first_name, last_name, user_img, user_description, user_resume, company_id]
     )
   } catch (error) {
     res.status(500).json(error)
