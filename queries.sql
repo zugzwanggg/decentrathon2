@@ -29,5 +29,7 @@ CREATE TABLE jobs(
   description TEXT NOT NULL,
   requirements TEXT NOT NULL,
   contract_type VARCHAR(50) NOT NULL,
-  status VARCHAR(20) DEFAULT 'open'
+  status BIT,
+  company_id INT,
+  FOREIGN KEY (company_id) REFERENCES companies(id)
 )
